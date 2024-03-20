@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Deserts</h2>
+
+<table>
+    <tr>
+        <th>Name(Ukr)</th>
+        <th>Name(Eng)</th>
+        <th><a href="/desert/add">Add new desert</a></th>
+
+    </tr>
+    <tr th:each="desert: ${deserts}">
+        <td th:text="${desert.getNameUa()}"></td>
+        <td th:text="${desert.getNameEn()}"></td>
+        <td th:text="${desert.getPrice()}"></td>
+        <td><a th:href="@{/desert/update/{id}(id=${desert.getIdDesert()})}">Update</a></td>
+        <td> <a th:href="@{/desert/delete/{id}(id=${desert.getIdDesert()})}"> Delete</a></td>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Drinks</h2>
+
+<table>
+    <tr>
+        <th>Name(Ukr)</th>
+        <th>Name(Eng)</th>
+        <th>Price</th>
+        <th><a href="/drink/add">Add new drink</a></th>
+
+    </tr>
+    <tr th:each="drink: ${drinks}">
+        <td th:text="${drink.getNameUa()}"></td>
+        <td th:text="${drink.getNameEn()}"></td>
+        <td th:text="${drink.getPrice()}"></td>
+        <td><a th:href="@{/drink/update/{id}(id=${drink.getIdDrink()})}">Update</a></td>
+        <td> <a th:href="@{/drink/delete/{id}(id=${drink.getIdDrink()})}"> Delete</a></td>
+    </tr>
+</table>
+<a href="http://localhost:8080">BACK</a>
+
+</body>
+</html>
