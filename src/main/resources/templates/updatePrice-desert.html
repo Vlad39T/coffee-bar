@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>update price desert</title>
+</head>
+<body>
+<form th:action="@{/desert/updatePrice/{id}(${desert.getIdDesert()})}" method="post">
+    <input type="text" value="${desert.getPrice()}" name="price">
+    <input type="submit" value="Update price">
+</form></td>
+</body>
+</html>

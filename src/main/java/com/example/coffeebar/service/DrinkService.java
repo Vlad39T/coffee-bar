@@ -35,4 +35,10 @@ public class DrinkService {
     public void deleteDrink(Long idDrink){
         drinkRepository.deleteById(idDrink);
     }
+
+    public void saveDrink(Drink drink){
+        if(drink !=null){
+            drinkRepository.save(drink);
+        }
+    }
 }

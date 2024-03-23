@@ -1,6 +1,7 @@
 package com.example.coffeebar.service;
 
 import com.example.coffeebar.entity.Desert;
+import com.example.coffeebar.entity.Drink;
 import com.example.coffeebar.repository.DesertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,11 @@ public class DesertService {
 
     public void deleteDesert(Long idDesert){
         desertRepository.deleteById(idDesert);
+    }
+
+    public void saveDesert(Desert desert){
+        if(desert !=null){
+            desertRepository.save(desert);
+        }
     }
 }

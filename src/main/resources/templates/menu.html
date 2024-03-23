@@ -11,15 +11,21 @@
     <tr>
         <th>Name(Ukr)</th>
         <th>Name(Eng)</th>
-        <th><a href="/desert/add">Add new desert</a></th>
+        <th><a href="/desert/add">&#10010;</a></th>
 
     </tr>
     <tr th:each="desert: ${deserts}">
         <td th:text="${desert.getNameUa()}"></td>
         <td th:text="${desert.getNameEn()}"></td>
         <td th:text="${desert.getPrice()}"></td>
+        <td>
+            <form th:action="@{/desert/updatePrice/{id}(id=${desert.getIdDesert()})}" method="post">
+                <input type="number" th:value="${desert.getPrice()}" name="price">
+                <input type="submit" value="Update">
+            </form>
+        </td>
         <td><a th:href="@{/desert/update/{id}(id=${desert.getIdDesert()})}">Update</a></td>
-        <td> <a th:href="@{/desert/delete/{id}(id=${desert.getIdDesert()})}"> Delete</a></td>
+        <td><a th:href="@{/desert/delete/{id}(id=${desert.getIdDesert()})}"> Delete</a></td>
     </tr>
 </table>
 <br>
@@ -34,15 +40,20 @@
         <th>Name(Ukr)</th>
         <th>Name(Eng)</th>
         <th>Price</th>
-        <th><a href="/drink/add">Add new drink</a></th>
+        <th><a href="/drink/add">&#10010;</a></th>
 
     </tr>
     <tr th:each="drink: ${drinks}">
         <td th:text="${drink.getNameUa()}"></td>
         <td th:text="${drink.getNameEn()}"></td>
         <td th:text="${drink.getPrice()}"></td>
+        <td>
+            <form th:action="@{/drink/updatePrice/{id}(id=${drink.getIdDrink()})}" method="post">
+                <input  type="number" th:value="${drink.getPrice()}" name="price">
+                <input type="submit" value="Update">
+        </td>
         <td><a th:href="@{/drink/update/{id}(id=${drink.getIdDrink()})}">Update</a></td>
-        <td> <a th:href="@{/drink/delete/{id}(id=${drink.getIdDrink()})}"> Delete</a></td>
+        <td><a th:href="@{/drink/delete/{id}(id=${drink.getIdDrink()})}"> Delete</a></td>
     </tr>
 </table>
 <a href="http://localhost:8080">BACK</a>

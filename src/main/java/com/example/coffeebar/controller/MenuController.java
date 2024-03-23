@@ -7,10 +7,9 @@ import com.example.coffeebar.service.DrinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 @Controller
 public class MenuController {
@@ -82,6 +81,36 @@ public class MenuController {
     @GetMapping("/drink/delete/{id}")
     public String deleteDrink(@PathVariable Long id){
         drinkService.deleteDrink(id);
+        return "redirect:/menu";
+    }
+
+    @GetMapping("/drink/updatePrice/{id}")
+    public String updatePriceDrink(@PathVariable Long id,Model model){
+        Drink drink = drinkService.findById(id);
+        model.addAttribute("drink",drink);
+        return "updatePrice-drink";
+    }
+
+    @GetMapping("/desert/updatePrice/{id}")
+    public String updatePriceDesert(@PathVariable Long id, Model model){
+        Desert desert = desertService.findById(id);
+        model.addAttribute("desert",desert);
+        return "updatePrice-desert";
+    }
+
+    @PostMapping("/drink/updatePrice/{id}")
+    public String updatePriceDrink(@PathVariable Long id,@RequestParam (name = "price") Integer price){
+        Drink drinkId = drinkService.findById(id);
+        drinkId.setPrice(price);
+        drinkService.saveDrink(drinkId);
+        return "redirect:/menu";
+    }
+
+    @PostMapping("/desert/updatePrice/{id}")
+    public String updatePriceDesert(@PathVariable Long id,@RequestParam(name="price") BigDecimal price){
+       Desert desertId = desertService.findById(id);
+       desertId.setPrice(price);
+       desertService.saveDesert(desertId);
         return "redirect:/menu";
     }
 }
