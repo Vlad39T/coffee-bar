@@ -1,0 +1,46 @@
+body{
+    background-image: url("images/restoran_kafe_oformlenie_39235_1920x1080.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    overflow: hidden;
+}
+#title{
+    padding: 10px;
+    margin: 30px -5px -10px -5px;
+    background-color: #110f10;
+    display: block;
+    position: relative;
+    left: 565px;
+    width: 380px;
+    height: 30px;
+    color: white;
+    font-family:fantasy ;
+    font-size: 35px;
+}
+ul{
+    list-style-type: none;
+}
+#navigator-panel{
+    margin-top: -20px;
+    text-align: center;
+    width: 400px;
+    height: 720px;
+    background-image: url("images/mainIMG.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 2;
+}
+a{
+    font-size: 22px;
+    color: green;
+    text-decoration: none;
+    font-family: "Comic Sans MS", cursive;
+    display: inline-block;
+    position: relative;
+    right: 14px;
+    top: 50px;
+}

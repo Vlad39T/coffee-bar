@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="">
+    <input type="checkbox" th:each="position:${positions}" th:value="${position}" >
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each="personal: ${personals}">
+        <td th:text="${personal.getName()}"></td>
+        <td th:text="${personal.getPosition().getName()}"></td>
+        <td th:text="${personal.getPhone()}"></td>
+        <td th:text="${personal.getAddress()}"></td>
+
+        <td><a th:href="@{/personal/update/{id}(id=${personal.getIdPersonal()})}">Update</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
